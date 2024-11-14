@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ChangeEvent, useState, useRef } from "react";
-import axios from "axios";
 import { ProblemInfo } from "@/interfaces/problemInfo";
-const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 type UploadImagePopupProps = {
   setShowPopup: (show: boolean) => void;
@@ -75,16 +73,20 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
       setExtractionStatus(
         "(키워드 추출은 10초 가량 소요될 수 있습니다. 잠시 기다려주세요.)"
       );
-      const response = await axios.post(`${apiUrl}/get_keywords`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+
+      const response = await fetch("/api/proxy?endpoint=get_keywords", {
+        method: "POST",
+        body: formData,
       });
-      setRes(response.data);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setRes(data);
       setExtractionStatus("");
       setShowPopup(false);
       setIsExtracted(true);
-      setResArray(response.data);
+      setResArray(data);
       setProblemNum(problemInfo.problemNum);
       setProblemDesc(problemInfo.problemDesc);
     } catch (error) {
