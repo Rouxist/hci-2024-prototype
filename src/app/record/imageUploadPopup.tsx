@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ChangeEvent, useState, useRef } from "react";
 import axios from "axios";
 import { ProblemInfo } from "@/interfaces/problemInfo";
-const apiUrl = process.env.API_BASE_URL;
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 type UploadImagePopupProps = {
   setShowPopup: (show: boolean) => void;
