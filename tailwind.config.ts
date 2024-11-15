@@ -13,7 +13,11 @@ const config: Config = {
         foreground: "var(--foreground)",
         "color-silgam": "#283593",
         "color-language": "#55B99E",
-        "color-mathematics": "#E05FA9",
+        "color-mathematics": {
+          100: "#E990C3",
+          200: "#E05FA9",
+          300: "#D83492",
+        },
         "color-investigation": "#7B4DB9",
       },
       animation: {
