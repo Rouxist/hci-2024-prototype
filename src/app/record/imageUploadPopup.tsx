@@ -71,7 +71,7 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
     try {
       setRes([]);
       setExtractionStatus(
-        "(키워드 추출은 10초 가량 소요될 수 있습니다. 잠시 기다려주세요.)"
+        "(키워드 추출은 5초 가량 소요될 수 있습니다. 잠시 기다려주세요.)"
       );
 
       const response = await fetch("/api/proxy?endpoint=get_keywords", {

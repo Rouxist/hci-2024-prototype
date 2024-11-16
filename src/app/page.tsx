@@ -59,8 +59,8 @@ export default function Home() {
               onClick={() => setSelectedTab("미적분")}
               className={`px-3 py-1 rounded-full ${
                 selectedTab === "미적분"
-                  ? "bg-color-mathematics text-white"
-                  : "bg-gray-100 text-color-mathematics border border-1 border-color-mathematics"
+                  ? "bg-color-mathematics-300 text-white"
+                  : "bg-gray-100 text-color-mathematics-300 border border-1 border-color-mathematics-300"
               }`}
             >
               미적분
@@ -86,7 +86,7 @@ export default function Home() {
                       <div
                         className={`text-xs ${
                           selectedTab === "미적분"
-                            ? "text-color-mathematics"
+                            ? "text-color-mathematics-300"
                             : "text-color-language"
                         }`}
                       >
