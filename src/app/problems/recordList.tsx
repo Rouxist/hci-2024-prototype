@@ -38,7 +38,7 @@ const ProblemList: React.FC<ProblemListProps> = ({
               <h3 className="text-2xl font-semibold leading-tight mt-1 mr-2">
                 {record.title}
               </h3>
-              <div className="text-color-mathematics-3 text-md">
+              <div className="text-color-mathematics-300 text-md">
                 {record.subject}
               </div>
             </div>
