@@ -177,7 +177,7 @@ const UploadPage: React.FC = () => {
         <button
           // href="/problems"
           onClick={handleSubmit}
-          className="w-[23vh] h-[7vh] px-6 py-2 text-blue-500"
+          className="w-[23vh] h-[7vh] px-6 py-2 text-color-silgam"
         >
           저장
         </button>

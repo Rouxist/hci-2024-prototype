@@ -37,7 +37,7 @@ export default function Home() {
           제목, 피드백 검색
         </div>
         {/* Tabs */}
-        <div className="flex gap-2 my-4 min-h-[35px] overflow-x-scroll mx-4">
+        <div className="flex gap-2 my-4 min-h-[50px] overflow-x-scroll mx-4">
           <button className="flex items-center min-h-[35px] text-gray-500 border border-gray-300 rounded-full px-3 py-1">
             ↻
           </button>
