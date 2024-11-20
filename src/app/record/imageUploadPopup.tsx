@@ -80,16 +80,18 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
         body: formData,
       });
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        // When server is not running
+        setExtractionStatus("테스트 참여 기간이 아니에요 😭");
+      } else {
+        const data = await response.json();
+        setRes(data);
+        setExtractionStatus("");
+        setShowPopup(false);
+        setIsExtracted(true);
+        setResArray(data);
+        setProblemNum(problemInfo.problemNum);
+        setProblemDesc(problemInfo.problemDesc);
       }
-      const data = await response.json();
-      setRes(data);
-      setExtractionStatus("");
-      setShowPopup(false);
-      setIsExtracted(true);
-      setResArray(data);
-      setProblemNum(problemInfo.problemNum);
-      setProblemDesc(problemInfo.problemDesc);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
