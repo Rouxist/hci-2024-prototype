@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { ChangeEvent, useState, useRef } from "react";
 import { ProblemInfo } from "@/interfaces/problemInfo";
+import { FiX } from "react-icons/fi";
 
 type UploadImagePopupProps = {
   setShowPopup: (show: boolean) => void;
@@ -99,7 +100,7 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
       <div className="fixed h-screen w-[46vh] bg-black opacity-50"></div>
       <div className="flex flex-col fixed w-[36vh] h-[40vh] min-h-[425px] bg-gray-50 rounded-md shadow-xl">
         <div className="flex-grow p-6">
-          <h1 className="text-xl">복습할 문제 추가</h1>
+          <h1 className="text-xl h-sm:text-base">복습할 문제 추가</h1>
           <h3 className="text-xs text-gray-500">
             (제목, 메모 모두 입력해주세요.)
           </h3>
@@ -109,14 +110,14 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
               name="problemNum"
               value={problemInfo.problemNum}
               onChange={handleExamDataChange}
-              className="flex items-center justify-start my-2 w-full h-[4vh] px-4 text-sm text-gray-500 border rounded-md bg-white"
+              className="flex items-center justify-start my-2 w-full h-[4vh] px-4 h-sm:px-2 text-sm text-gray-500 border rounded-md bg-white"
               placeholder="제목 (문제 번호)"
             />
             <textarea
               name="problemDesc"
               value={problemInfo.problemDesc}
               onChange={handleExamDataChange}
-              className="flex items-center justify-start my-2 w-full h-[7vh] p-2 px-4 text-sm text-gray-500 border rounded-md bg-white  resize-none"
+              className="flex items-center justify-start my-2 w-full h-[7vh] min-h-[75px] p-2 px-4 h-sm:px-2 text-sm text-gray-500 border rounded-md bg-white  resize-none"
               placeholder="메모 (이 문제를 틀린 이유, 복습할 점을 적어보세요.)"
             />
           </form>
@@ -136,15 +137,15 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
             >
               {imageUrl ? (
                 <div className="relative w-full h-[6vh] rounded-md">
-                  <p
-                    className="absolute pl-1 text-black z-10"
+                  <div
+                    className="absolute text-black z-10"
                     onClick={() => {
                       setImageUrl(null);
                       setParentImageUrl(null);
                     }}
                   >
-                    X
-                  </p>
+                    <FiX />
+                  </div>
                   <Image
                     src={imageUrl}
                     alt="uploaded_img"
@@ -164,19 +165,19 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
             />
           </div>
         </div>
-        <div className="flex justify-center min-h-[2rem] text-gray-400 px-6 text-sm">
+        <div className="flex justify-center min-h-[2rem] text-gray-400 px-6 text-sm h-sm:text-xs">
           {extractionStatus}
         </div>
         <div className="flex justify-center text-gray-500 px-6">{res}</div>
         <div className="flex justify-end">
           <button
-            className="mx-8 text-gray-500"
+            className="mx-8 text-gray-500 text-xl h-sm:text-base"
             onClick={() => setShowPopup(false)}
           >
             취소
           </button>
           <button
-            className={`mx-8 my-1 w-[6vh] h-[6vh] text-xl text-color-silgam ${
+            className={`mx-8 my-1 w-[6vh] h-[6vh] text-xl h-sm:text-base text-color-silgam ${
               typeof imageUrl === "string" ? "animate-pulse-fast" : ""
             }`}
             onClick={handleUpload}

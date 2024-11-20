@@ -26,6 +26,9 @@ const config: Config = {
       boxShadow: {
         "color-silgam": "0 1px 4px rgba(40, 53, 147, 0.75)",
       },
+      screens: {
+        "h-sm": { raw: "(max-height: 770px)" }, // custom breakpoint based on screen height
+      },
     },
   },
   plugins: [],

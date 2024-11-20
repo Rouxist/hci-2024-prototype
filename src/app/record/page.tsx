@@ -51,9 +51,9 @@ const UploadPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="flex items-center justify-center bg-white">
-        <div className="h-[93vh] w-[46vh] pt-4 bg-gray-50 shadow-lg p-4">
+        <div className="h-[93vh] w-[46vh] pt-4 bg-gray-50 shadow-lg p-4 overflow-y-scroll">
           {/* Score and Date Inputs */}
-          <div className="overflow-x-auto whitespace-nowrap my-4">
+          <div className="overflow-x-hidden whitespace-nowrap my-4">
             <ul className="flex space-x-4">
               <li className="flex flex-col items-center">
                 <p className="w-[10vh] max-w-[80px] text-gray-400">점수</p>
@@ -94,7 +94,7 @@ const UploadPage: React.FC = () => {
             </ul>
           </div>
           {/* Date and Time Inputs */}
-          <div className="overflow-x-auto whitespace-nowrap my-4">
+          <div className="overflow-x-hidden whitespace-nowrap my-4">
             <ul className="flex space-x-6">
               <li className="flex flex-col items-center">
                 <p className="w-[20vh] max-w-[140px] text-gray-400">

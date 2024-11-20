@@ -42,33 +42,43 @@ const ProblemPopup: React.FC<ProblemPopupProps> = ({
   return (
     <div className="fixed h-screen w-[46vh] flex flex-col items-center justify-center">
       <div className="fixed h-screen w-[46vh] bg-black opacity-50"></div>
-      <div className="flex flex-col fixed p-6 w-[36vh] h-[70vh] min-h-[600px] bg-gray-50 rounded-md shadow-xl">
-        <h1 className="text-xl">문제 정보</h1>
-        <h1 className="text-2xl font-bold">{recordInfo.title}</h1>
-        <h1 className="text-xl font-bold">{recordInfo.problemNum}번</h1>
-        <h1 className="text-xl font-bold">{recordInfo.problemDesc}</h1>
-        <h3 className="text-md text-gray-500">문제 사진</h3>
-        <div className="flex-grow relative w-full shadow-sm flex items-center justify-center text-gray-400">
-          <Image
-            src={recordInfo.imageData}
-            alt="uploaded_img"
-            fill
-            style={{ objectFit: "cover" }}
-          ></Image>
+      <div className="flex flex-col fixed pt-4 pb-2 px-6 w-[36vh] h-[70vh] min-h-[600px] bg-gray-50 rounded-md shadow-xl">
+        <div className="flex-grow w-full h-[65vh] min-h-[400px] overflow-y-scroll">
+          <h1 className="text-2xl h-sm:text-xl font-bold">
+            {recordInfo.title}
+          </h1>
+          <h3 className="text-base h-sm:text-sm text-gray-500 mt-4">
+            문제 정보
+          </h3>
+          <h1 className="text-xl h-sm:text-base font-bold">
+            {recordInfo.problemNum}번
+          </h1>
+          <h1 className="text-xl h-sm:text-base">{recordInfo.problemDesc}</h1>
+          <h3 className="text-base h-sm:text-sm text-gray-500 mt-4">
+            문제 사진
+          </h3>
+          <div className="flex-grow relative w-full min-h-[150px] shadow-sm flex items-center justify-center text-gray-400">
+            <Image
+              src={recordInfo.imageData}
+              alt="uploaded_img"
+              fill
+              style={{ objectFit: "cover" }}
+            ></Image>
+          </div>
+          <h3 className="text-base h-sm:text-sm text-gray-500 mt-4">태그</h3>
+          <Tags tags={keywordArray} onDelete={handleTagDelete}></Tags>
+          <div className="flex justify-center my-2 px-6">
+            <ul className="text-sm h-sm:text-xs text-gray-400 list-disc">
+              <li>
+                문제 사진으로부터 AI를 사용해 생성한 태그입니다. 잘못 생성된
+                태그가 있다면 삭제해주세요.
+              </li>
+              <li>
+                태그를 직접 작성해서 업로드하는 기능은 구현되지 않았습니다 🥲
+              </li>
+            </ul>
+          </div>
         </div>
-        <h3 className="text-md text-gray-500">태그</h3>
-        <div className="flex justify-center my-2 px-6">
-          <ul className="text-sm text-gray-400 list-disc">
-            <li>
-              문제 사진으로부터 AI를 사용해 생성한 태그입니다. 잘못 생성된
-              태그가 있다면 삭제해주세요.
-            </li>
-            <li>
-              태그를 직접 작성해서 업로드하는 기능은 구현되지 않았습니다 🥲
-            </li>
-          </ul>
-        </div>
-        <Tags tags={keywordArray} onDelete={handleTagDelete}></Tags>
         <div className="flex justify-center">
           <button
             className="mx-8 text-gray-500"

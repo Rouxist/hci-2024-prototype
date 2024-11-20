@@ -24,7 +24,7 @@ export function Tags({ tags, onDelete }: Props) {
       <div className="">
         {tags.map((tag, idx) => (
           <div
-            className={`inline-flex items-center py-1 px-2 min-w-10 mr-2 mb-1 text-md font-mono rounded-full text-white w-fit whitespace-nowrap inline-block ${
+            className={`inline-flex items-center py-1 px-2 min-w-10 mr-2 mb-1 text-base h-sm:text-sm font-mono rounded-full text-white w-fit whitespace-nowrap inline-block ${
               bgColors[idx % bgColors.length]
             }`}
             key={"tag_" + tag}
