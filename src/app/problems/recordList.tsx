@@ -29,16 +29,16 @@ const ProblemList: React.FC<ProblemListProps> = ({
         .filter(
           (record) =>
             record.subject === selectedSubject &&
-            record.tags.includes(selectedTag) &&
+            (selectedTag === "" || record.tags.includes(selectedTag)) && // When selectedTag is empty string, shows all records
             record.imageData.length > 0
         )
         .map((record, index) => (
           <div key={index}>
             <div className="flex flex-row items-end">
-              <h3 className="text-2xl font-semibold leading-tight mt-1 mr-2">
+              <h3 className="text-2xl h-sm:text-xl font-semibold leading-tight mt-1 mr-2">
                 {record.title}
               </h3>
-              <div className="text-color-mathematics-300 text-md">
+              <div className="text-color-mathematics-300 text-base">
                 {record.subject}
               </div>
             </div>
@@ -61,7 +61,7 @@ const ProblemList: React.FC<ProblemListProps> = ({
             </div>
             <div className="p-2 bg-white h-[100%] rounded-b-lg">
               <h1 className="text-xl font-bold">{record.problemNum}번</h1>
-              <h2 className="text-xl mb-2">
+              <h2 className="text-xl  h-sm:text-base mb-2">
                 {record.problemDesc.slice(0, 23)}
               </h2>
               <Tags tags={record.tags}></Tags>

@@ -5,36 +5,18 @@ import { FiArrowLeft } from "react-icons/fi";
 import ProblemList from "./recordList";
 import { useRecords } from "../../context/RecordsContext";
 import ProblemPopup from "./problemPopup";
+import { ExamData } from "@/interfaces/examData";
+
+const surveyUrl = process.env.NEXT_PUBLIC_SURVEY_URL as string;
 
 export default function Problems() {
   const [subject, setSubject] = useState("미적분");
   const [tag, setTag] = useState("");
 
-  const subjects = ["언어와매체", "미적분", "사회문화"];
-  const tags = [
-    "구간별로 정의된 함수",
-    "그래프로 둘러싸인 넓이",
-    "그래프의 교점 개수",
-    "등차수열",
-    "로그함수",
-    "미분가능성",
-    "사인법칙과 코사인법칙",
-    "삼각함수",
-    "수열의 귀납적 정의",
-    "수열의 합",
-    "수직선 상의 운동",
-    "외접원과 내접원",
-    "절댓값 함수",
-    "접선의 방정식",
-    "정적분",
-    "정적분으로 정의된 함수",
-    "지수함수",
-    "함수의 극한",
-    "함수의 연속성",
-    "함수의 추론",
-  ];
-
+  const subjects = ["언어와매체", "미적분"];
   const { records, updateRecord } = useRecords();
+  const allTags = records.map((value: ExamData) => value.tags);
+  const tags = Array.from(new Set(allTags.flat()));
 
   // Popup
   const [showPopup, setShowPopup] = useState(false);
@@ -42,8 +24,8 @@ export default function Problems() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex items-center justify-center bg-white">
-        <div className="flex flex-col h-screen w-[46vh] pt-16 bg-gray-50 shadow-lg p-4">
+      <div className="flex flex-col items-center justify-center bg-white">
+        <div className="flex flex-col h-[93vh] w-[46vh] pt-16 bg-gray-50 shadow-lg p-4">
           <div className="flex items-center mb-6">
             <Link className="mr-3" href="/">
               <FiArrowLeft
@@ -51,7 +33,9 @@ export default function Problems() {
                 color="black"
               />
             </Link>
-            <h1 className="text-2xl font-semibold">틀린 문제 모아보기</h1>
+            <h1 className="text-2xl h-sm:text-xl font-semibold">
+              틀린 문제 모아보기
+            </h1>
           </div>
           <h1 className="pb-2">기록한 문제 개수 : {records.length - 2} 개</h1>
 
@@ -91,18 +75,22 @@ export default function Problems() {
             </div>
           </div>
           <div className="flex flex-col h-[100%] justify-center items-center">
-            {!tag ? (
-              <h1 className="text-gray-500">태그를 선택해주세요</h1>
-            ) : (
-              <ProblemList
-                selectedSubject={subject}
-                selectedTag={tag}
-                records={records}
-                setShowPopup={setShowPopup}
-                setProblemIdxToShow={setProblemIdxToShow}
-              ></ProblemList>
-            )}
+            <ProblemList
+              selectedSubject={subject}
+              selectedTag={tag}
+              records={records}
+              setShowPopup={setShowPopup}
+              setProblemIdxToShow={setProblemIdxToShow}
+            ></ProblemList>
           </div>
+        </div>
+        <div className="flex justify-center h-sm:text-sm w-[46vh] h-[7vh] bg-white shadow-md whitespace-nowrap overflow-hidden z-10">
+          <Link
+            className="flex justify-center items-center w-[23vh] animate-pulse-fast"
+            href={surveyUrl}
+          >
+            사후 조사 응답하기
+          </Link>
         </div>
       </div>
       {showPopup ? (
