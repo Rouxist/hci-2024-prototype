@@ -98,7 +98,7 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
   };
 
   return (
-    <div className="fixed h-screen w-[46vh] flex flex-col items-center justify-center">
+    <div className="fixed h-screen w-[46vh] flex flex-col items-center justify-center z-20">
       <div className="fixed h-screen w-[46vh] bg-black opacity-50"></div>
       <div className="flex flex-col fixed w-[36vh] h-[40vh] min-h-[425px] bg-gray-50 rounded-md shadow-xl">
         <div className="flex-grow p-6">
