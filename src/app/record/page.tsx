@@ -170,7 +170,7 @@ const UploadPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-[46vh] h-[7vh] bg-white shadow-md">
+      <div className="w-[46vh] h-[7vh] bg-white shadow-md z-10">
         <button className="w-[23vh] h-[7vh] px-6 py-2 text-gray-500">
           <Link href="/">취소</Link>
         </button>
