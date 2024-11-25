@@ -81,7 +81,9 @@ const UploadImagePopup: React.FC<UploadImagePopupProps> = ({
       });
       if (!response.ok) {
         // When server is not running
-        setExtractionStatus("테스트 참여 기간이 아니에요 😭");
+        setExtractionStatus(
+          "문제가 발생했어요 😭 문자 또는 DM, 카카오톡을 통해 제보해주세요 🙇"
+        );
       } else {
         const data = await response.json();
         setRes(data);
