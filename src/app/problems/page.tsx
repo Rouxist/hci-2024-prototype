@@ -84,12 +84,13 @@ export default function Problems() {
             ></ProblemList>
           </div>
         </div>
-        <div className="flex justify-center h-sm:text-sm w-[46vh] h-[7vh] bg-white shadow-md whitespace-nowrap overflow-hidden z-10">
+        <div className="flex justify-center  h-sm:text-sm w-[46vh] h-[7vh] bg-white shadow-md whitespace-nowrap overflow-hidden z-10">
           <Link
-            className="flex justify-center items-center w-[23vh] animate-pulse-fast"
+            className="flex justify-center items-center text-center text-color-silgam font-bold w-[23vh] animate-pulse-fast"
             href={surveyUrl}
           >
-            사후 조사 응답하기
+            사후 조사 바로 참여하기 <br />
+            (사후 조사에 참여해야 테스트가 완료됩니다.)
           </Link>
         </div>
       </div>

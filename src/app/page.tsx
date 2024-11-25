@@ -131,7 +131,7 @@ export default function Home() {
       </div>
       <div className="flex justify-center h-sm:text-sm w-[46vh] h-[7vh] bg-white shadow-md whitespace-nowrap overflow-hidden z-10">
         <Link
-          className="flex justify-center items-center w-[23vh]  animate-pulse-fast"
+          className="flex justify-center items-center w-[23vh] text-color-silgam font-bold animate-pulse-fast"
           href="/problems"
         >
           문제 모아보기

@@ -38,6 +38,15 @@ export default function Instruction() {
                 신기능 체험 페이지
               </a>
               에서 새로운 기능을 테스트해주세요.
+              <a
+                className="text-color-silgam underline"
+                target="_blank"
+                href="https://drive.google.com/drive/folders/17WXP-VHPs3aZGWJI-rWjl_vIpC_Yiy0p?usp=sharing"
+                rel="noopener noreferrer"
+              >
+                사전에 준비된 문제 사진
+              </a>
+              을 다운받아서 테스트를 진행해주셔도 괜찮습니다.
             </li>
             <li>
               <a
@@ -48,8 +57,8 @@ export default function Instruction() {
               >
                 사후조사
               </a>
-              를 <span className="font-bold">반드시!</span> 답변 및 제출해주시면
-              테스트가 끝나게 됩니다 🙂
+              를 <span className="font-bold">반드시!!</span> 답변 및
+              제출해주시면 테스트가 끝나게 됩니다 🙂
             </li>
           </ul>
         </div>
