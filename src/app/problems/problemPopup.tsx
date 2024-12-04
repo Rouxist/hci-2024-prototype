@@ -22,7 +22,7 @@ const ProblemPopup: React.FC<ProblemPopupProps> = ({
   problemIdx,
   updateRecord,
 }) => {
-  const [selectedTagIdxToDelete, setSelectedTagIdxToDelete] = useState(0);
+  const [selectedTagIdxToDelete, setSelectedTagIdxToDelete] = useState(3);
   const [keywordArray, setKeywordArray] = useState(recordInfo.tags);
 
   const handleTagDelete = (index: number) => {
@@ -31,11 +31,13 @@ const ProblemPopup: React.FC<ProblemPopupProps> = ({
   };
 
   const handleSubmit = () => {
-    updateRecord(problemIdx, {
-      tags: recordInfo.tags.filter(
-        (t: string, i: number) => i != selectedTagIdxToDelete
-      ),
-    });
+    if (selectedTagIdxToDelete != 3) {
+      updateRecord(problemIdx, {
+        tags: recordInfo.tags.filter(
+          (t: string, i: number) => i != selectedTagIdxToDelete
+        ),
+      });
+    }
     setShowPopup(false);
   };
 
